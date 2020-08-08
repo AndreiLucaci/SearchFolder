@@ -1,0 +1,38 @@
+﻿<UserControl x:Class="SearchFolder.Views.Searcher"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:SearchFolder.Views"
+             mc:Ignorable="d" 
+             xmlns:model="clr-namespace:SearchFolder.Model"
+             d:DesignHeight="450" d:DesignWidth="800"
+             x:Name="ThisControl">
+    <UserControl.Resources>
+        <DataTemplate x:Key="listItem" DataType="model:FileModel">
+            <ListViewItem Content="{Binding Path=Name}" ></ListViewItem>
+        </DataTemplate>
+    </UserControl.Resources>
+    <Grid>
+        <DockPanel>
+            <Grid DockPanel.Dock="Top">
+                <TextBox TextChanged="TextBox_TextChanged"
+                         FontSize="14"
+                         FontWeight="DemiBold"
+                         PreviewKeyDown="TextBox_PreviewKeyDown"
+                         KeyDown="TextBox_KeyDown"
+                         x:Name="searchBox"></TextBox>
+            </Grid>
+            <ListView x:Name="list" DockPanel.Dock="Bottom" ItemsSource="{Binding Path=ViewModel.FilteredFiles, ElementName=ThisControl}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <WrapPanel>
+                            <TextBlock Text="Name: " />
+                            <TextBlock Text="{Binding Name}" FontWeight="Bold" />
+                        </WrapPanel>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </DockPanel>
+    </Grid>
+</UserControl>
