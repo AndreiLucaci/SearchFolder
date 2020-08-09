@@ -6,8 +6,12 @@
         xmlns:local="clr-namespace:SearchFolder"
         xmlns:views="clr-namespace:SearchFolder.Views"
         mc:Ignorable="d"
-        Title="SearchFolder" Height="450" Width="800" FontFamily="/SearchFolder;component/Fonts/#Roboto Medium" FontSize="16" Topmost="True" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+        Title="SearchFolder" Height="450" Width="800" FontFamily="/SearchFolder;component/Fonts/#Roboto Medium" FontSize="16" ResizeMode="CanMinimize" WindowStartupLocation="CenterScreen">
     <Grid>
-        <views:Searcher></views:Searcher>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="425*"/>
+            <ColumnDefinition Width="369*"/>
+        </Grid.ColumnDefinitions>
+        <views:Searcher Grid.ColumnSpan="2"></views:Searcher>
     </Grid>
 </Window>

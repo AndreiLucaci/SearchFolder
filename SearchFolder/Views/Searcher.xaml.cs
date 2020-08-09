@@ -77,5 +77,13 @@ namespace SearchFolder.Views
                 list.SelectedIndex = idx;
             }
         }
+
+        private void List_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            if (list.SelectedItem is FileModel fileModel)
+            {
+                ViewModel.Execute(fileModel);
+            }
+        }
     }
 }

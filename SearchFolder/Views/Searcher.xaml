@@ -23,7 +23,10 @@
                          KeyDown="TextBox_KeyDown"
                          x:Name="searchBox"></TextBox>
             </Grid>
-            <ListView x:Name="list" DockPanel.Dock="Bottom" ItemsSource="{Binding Path=ViewModel.FilteredFiles, ElementName=ThisControl}">
+            <ListView x:Name="list" DockPanel.Dock="Bottom"
+                      MouseDoubleClick="List_MouseDoubleClick"
+                      KeyDown="TextBox_KeyDown"
+                      ItemsSource="{Binding Path=ViewModel.FilteredFiles, ElementName=ThisControl}">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <WrapPanel>
